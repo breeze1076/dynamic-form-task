@@ -1,0 +1,13 @@
+.menubutton {
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.outlet {
+    margin: 20px;
+}

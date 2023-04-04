@@ -1,0 +1,15 @@
+<h2>{{title}}</h2>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of formFields">
+        <app-form-field [formField]="field" [formGroup]="formGroup" *ngIf="isFormFieldVisible(field)"></app-form-field>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+    <div *ngIf="errors">
+        <div *ngFor="let error of errors" [ngStyle]="{'color': 'red'}">
+            <span>{{error}}</span><br>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,17 @@
+<div [formGroup]="formGroup" [ngStyle]="{'margin-bottom': '5px'}">
+    <div [ngSwitch]="formField.fieldType">
+        <label [attr.for]="formField.id">{{formField.name}}{{formField.mandatory ? '*' : ''}}</label>
+        <div *ngSwitchCase="FieldType.Text" >
+            <textarea *ngIf="formField.isMultiline" [formControlName]="formField.name" [id]="formField.id"></textarea>
+            <input *ngIf="!formField.isMultiline" [formControlName]="formField.name" [id]="formField.id">   
+        </div>   
+        <input *ngSwitchCase="FieldType.Checkbox" type="checkbox" [formControlName]="formField.name" [id]="formField.id">
+        <app-dropdown *ngSwitchCase="FieldType.DropDown" 
+            [formControlName]="formField.name" 
+            [id]="formField.id.toString()"
+            [options]="getDropDownOptions(formField)"
+            [placeHolder]="'select an option...'"
+        >
+        </app-dropdown>
+    </div>
+</div>

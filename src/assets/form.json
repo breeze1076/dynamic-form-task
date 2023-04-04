@@ -1,0 +1,98 @@
+{
+	"title": "Test angular form",
+	"formFields": [{
+			"name": "Checkbox1",
+			"priority": 3,
+			"fieldType": 3,
+			"mandatory": false,
+			"isMultiline": false,
+			"options": [],
+			"dependencies": [],
+			"id": 3
+		},
+		{
+			"name": "Multiline",
+			"priority": 1,
+			"fieldType": 2,
+			"mandatory": true,
+			"isMultiline": true,
+			"options": [],
+			"dependencies": [],
+			"id": 1
+		},
+		{
+			"name": "Dependent textbox 1",
+			"priority": 4,
+			"fieldType": 2,
+			"mandatory": false,
+			"isMultiline": false,
+			"options": [],
+			"dependencies": [{
+				"dependencyId": 3,
+				"dependencyValue": true
+			}],
+			"id": 4
+		},
+		{
+			"name": "List",
+			"priority": 2,
+			"fieldType": 1,
+			"mandatory": false,
+			"isMultiline": false,
+			"options": [{
+					"name": "Option1",
+					"priority": 2,
+					"id": 101
+				},
+				{
+					"name": "Option2",
+					"priority": 1,
+					"id": 100
+				},
+				{
+					"name": "Option3",
+					"priority": 3,
+					"id": 102
+				}
+			],
+			"dependencies": [],
+			"id": 2
+		},
+		{
+			"name": "Checkbox2",
+			"priority": 4,
+			"fieldType": 3,
+			"mandatory": false,
+			"isMultiline": false,
+			"options": [],
+			"dependencies": [],
+			"id": 7
+		},
+		{
+			"name": "Checkbox3",
+			"priority": 5,
+			"fieldType": 3,
+			"mandatory": true,
+			"isMultiline": false,
+			"options": [],
+			"dependencies": [{
+				"dependencyId": 7,
+				"dependencyValue": true
+			}],
+			"id": 8
+		},
+		{
+			"name": "Dependent textbox 2",
+			"priority": 6,
+			"fieldType": 2,
+			"mandatory": true,
+			"isMultiline": true,
+			"options": [],
+			"dependencies": [{
+				"dependencyId": 8,
+				"dependencyValue": true
+			}],
+			"id": 9
+		}
+	]
+}

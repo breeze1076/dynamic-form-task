@@ -1,0 +1,4 @@
+<select [id]="id" (ngModelChange)="onSelectValueChange($event)" [(ngModel)]="currentValue">
+    <option [ngValue]="" selected hidden>{{placeHolder}}</option>
+    <option *ngFor="let option of options" [ngValue]="option.value">{{option.label}}</option>
+</select>

@@ -1,0 +1,9 @@
+.title {
+    display: table;
+}
+
+.content {
+    font-size: 26px !important;
+    display: table-cell;
+    vertical-align: middle;
+}
