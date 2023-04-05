@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef, ChangeDetectorRef, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, forwardRef, AfterViewInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Injector } from '@angular/core';
 import { NgControl, FormControl } from '@angular/forms';
@@ -53,8 +53,8 @@ export class DropdownComponent implements ControlValueAccessor, AfterViewInit {
 }
 
 export class DropdownOption {
-  value: any = "";
-  label: string = "";
+  value: any;
+  label: string;
 
   constructor(value: any, label: string) {
     this.value = value;

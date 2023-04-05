@@ -11,7 +11,7 @@ import { DropdownOption } from 'src/app/common-components/dropdown/dropdown.comp
 export class FormFieldComponent implements OnInit {
   @Input() formField!: FormField;
   @Input() formGroup!: FormGroup;
-  options: DropdownOption[] = [];
+  options!: DropdownOption[];
   FieldType = FieldType;
   
   ngOnInit(): void {
