@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormComponent } from './components/form/form.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormFieldsResolver } from './services/form-fields-resolver';
+import { FormFieldsResolver } from './services/form-fields-resolver.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

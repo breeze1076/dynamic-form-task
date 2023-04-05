@@ -12,7 +12,7 @@ export class FormFieldsService {
   constructor(private http: HttpClient) {}
 
   getFormFields(): Observable<FormContent> {
-    return this.http.get('assets/form.json').pipe(delay(1000)).pipe(map((data:any) => {
+    return this.http.get('assets/form-content.json').pipe(delay(1000)).pipe(map((data:any) => {
       const result = new FormContent();
       result.title = data['title'];
       result.formFields = data['formFields'].map((f: any) => new FormField({ 

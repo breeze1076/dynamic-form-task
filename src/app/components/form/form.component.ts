@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { FieldType, FormField, FormContent } from 'src/app/models/form-field';
-import { FormFieldsService } from 'src/app/services/form-fields.service';
+import { FieldType, FormField } from 'src/app/models/form-field';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
-  providers: [FormFieldsService]
+  styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
   title: string = "";
@@ -22,7 +20,7 @@ export class FormComponent implements OnInit {
     this.activatedRoute.data.subscribe(({formContent}) => {
       this.title = formContent.title;
       this.formFields = formContent.formFields;
-      this.createFormGroup();
+      this.formGroup = this.createFormGroup(this.formFields);
     });
   }
 
@@ -46,15 +44,15 @@ export class FormComponent implements OnInit {
     });
   }
 
-  private createFormGroup() {
+  private createFormGroup(formFields: FormField[]): FormGroup {
     const group: any = {};
-    this.formFields.sort((a, b) => (a.priority - b.priority)).forEach(f => {
+    formFields.sort((a, b) => (a.priority - b.priority)).forEach(f => {
       const value = f.fieldType === FieldType.Checkbox ? false : '';
       const validators = f.mandatory 
         ? f.fieldType === FieldType.Checkbox ? Validators.requiredTrue : Validators.required
         : undefined;
       group[f.name] = new FormControl(value, validators);
     })
-    this.formGroup = new FormGroup(group);
+    return new FormGroup(group);
   } 
 }

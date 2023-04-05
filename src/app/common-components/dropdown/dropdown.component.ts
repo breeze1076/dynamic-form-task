@@ -1,5 +1,7 @@
-import { Component, Input, forwardRef, ChangeDetectorRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input, forwardRef, ChangeDetectorRef, OnInit, AfterViewInit } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { Injector } from '@angular/core';
+import { NgControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dropdown',
@@ -12,14 +14,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   }]
 })
 
-export class DropdownComponent implements ControlValueAccessor {
-  constructor () { }
+export class DropdownComponent implements ControlValueAccessor, AfterViewInit {
+  constructor (private injector: Injector) { }
 
-  @Input() id: string = "";
-  @Input() placeHolder: string = "";
   @Input() options: DropdownOption[] = [];
+  @Input() label: string = "";
 
   currentValue: any;
+  isRequired: boolean = false;
 
   private onChange!: (value: string) => void;
   private onTouch!: (value: string) => void;
@@ -39,6 +41,14 @@ export class DropdownComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
+  }
+
+  ngAfterViewInit(): void {
+    const ngControl: any = this.injector.get(NgControl, null);
+    if (ngControl) {
+      const control = ngControl.control as FormControl;      
+      this.isRequired = control.hasValidator(Validators.required);
+    }    
   }
 }
 

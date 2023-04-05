@@ -85,7 +85,7 @@
 			"name": "Dependent textbox 2",
 			"priority": 6,
 			"fieldType": 2,
-			"mandatory": true,
+			"mandatory": false,
 			"isMultiline": true,
 			"options": [],
 			"dependencies": [{

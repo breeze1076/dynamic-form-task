@@ -2,3 +2,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-form-field {
+    margin-bottom: -1.25em;
+    width: 100%;
+}
+
+/* For portrait mobile phone */
+@media only screen and (min-device-width: 320px) and (max-device-width: 479px) { 
+    form {
+        max-width: 100%;
+    }
+}
+
+/* For all larger resolutions */
+@media only screen and (min-width: 479px) { 
+    form {
+        width: 500px;
+    }
+}

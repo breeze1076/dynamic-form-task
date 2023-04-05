@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField, FieldType } from 'src/app/models/form-field';
 import { DropdownOption } from 'src/app/common-components/dropdown/dropdown.component';
@@ -8,12 +8,17 @@ import { DropdownOption } from 'src/app/common-components/dropdown/dropdown.comp
   templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.css']
 })
-export class FormFieldComponent {
+export class FormFieldComponent implements OnInit {
+  @Input() formField!: FormField;
+  @Input() formGroup!: FormGroup;
+  options: DropdownOption[] = [];
   FieldType = FieldType;
-  @Input() formField: FormField = new FormField({});
-  @Input() formGroup: FormGroup = new FormGroup({});
   
-  getDropDownOptions(formField: FormField) {
+  ngOnInit(): void {
+    this.options = this.getDropDownOptions(this.formField);
+  }
+
+  private getDropDownOptions(formField: FormField) {
     let result: DropdownOption[] = [];
     if (formField.fieldType === FieldType.DropDown) {
       result = formField.options

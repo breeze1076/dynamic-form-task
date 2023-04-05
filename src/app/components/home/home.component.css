@@ -1,9 +1,10 @@
-.title {
+.content {
     display: table;
 }
 
-.content {
+.caption {
     font-size: 26px !important;
     display: table-cell;
     vertical-align: middle;
+    padding-left: 10px;
 }

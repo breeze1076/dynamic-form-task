@@ -10,5 +10,5 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'dynamic-form-task';
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 }

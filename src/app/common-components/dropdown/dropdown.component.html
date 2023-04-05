@@ -1,4 +1,6 @@
-<select [id]="id" (ngModelChange)="onSelectValueChange($event)" [(ngModel)]="currentValue">
-    <option [ngValue]="" selected hidden>{{placeHolder}}</option>
-    <option *ngFor="let option of options" [ngValue]="option.value">{{option.label}}</option>
-</select>
+<mat-form-field>
+    <mat-label>{{label}}</mat-label>
+    <mat-select (ngModelChange)="onSelectValueChange($event)" [(ngModel)]="currentValue" required="{{isRequired}}">
+        <mat-option *ngFor="let option of options" [value]="option.value">{{option.label}}</mat-option>
+    </mat-select>
+</mat-form-field>

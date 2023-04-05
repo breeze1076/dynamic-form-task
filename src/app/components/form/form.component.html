@@ -4,10 +4,10 @@
         <app-form-field [formField]="field" [formGroup]="formGroup" *ngIf="isFormFieldVisible(field)"></app-form-field>
     </div>
     <div>
-        <button type="submit">Submit</button>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
     </div>
     <div *ngIf="errors">
-        <div *ngFor="let error of errors" [ngStyle]="{'color': 'red'}">
+        <div *ngFor="let error of errors" class="error">
             <span>{{error}}</span><br>
         </div>
     </div>
