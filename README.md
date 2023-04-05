@@ -9,6 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## How to test
 
 Go to "Dialog Form" page, fill out the form and click "Submit". If mandatory fields are not filled, there will me a red message. Otherwise the payload will appear in the browser console.
+The json data is located in assets/form-content.json. I have renamed two "Dependent textbox" controls to separate "Dependent textbox 1" and "Dependent textbox 2" to make FormControl identifiers unique in FormGroup.
 
 ## Code scaffolding
 
